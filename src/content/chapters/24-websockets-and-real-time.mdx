@@ -1,16 +1,21 @@
 ---
 order: 24
-title: "WebSockets & Real-Time"
-navTitle: "WebSockets & Real-Time"
-summary: "A first-principles walkthrough of real-time backend communication, from why HTTP's request-response shape can't push, through the WebSocket upgrade handshake, frames, and connection lifecycle, into building a server, managing thousands of connections, handling backpressure, and the hard part: scaling stateful connections across many instances with a pub/sub backplane. Written to explain not just what each piece does but why it exists and how it works underneath. Server and client code in both Go and Python."
-readingTime: "2-3 hours"
+title: "WebSocket 与实时通信"
+navTitle: "WebSocket 与实时通信"
+summary: "以第一性原理讲透实时后端通信：从为什么 HTTP 的请求-响应形态无法推送，到 WebSocket 升级握手、帧与连接生命周期，再到搭建服务器、管理数千连接、处理背压，以及最难的部分：用发布/订阅底板把有状态连接扩展到多个实例。不只讲每个部件做什么，更讲它为什么存在、底层如何运转。服务器与客户端代码使用 Go 和 Python。"
+readingTime: "2-3 小时"
 keywords:
   - "websockets"
+  - "实时"
   - "real-time"
   - "ws"
+  - "升级"
   - "upgrade"
+  - "握手"
   - "handshake"
+  - "双向"
   - "bidirectional"
+  - "持久连接"
   - "persistent"
 ---
 Part I / Why & What

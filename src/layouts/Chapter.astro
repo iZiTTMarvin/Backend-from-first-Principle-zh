@@ -18,11 +18,11 @@ const { order, title, summary, readingTime } = chapter.data;
 const num = String(order).padStart(2, '0');
 ---
 <Base
-  title={`${title} · Chapter ${num} · Backend from First Principles`}
+  title={`${title} · 第 ${num} 章 · 后端第一性原理`}
   description={summary}
   path={`/${chapter.id}/`}
 >
-  <SiteHeader crumb={`Chapter ${num}`} />
+  <SiteHeader crumb={`第 ${num} 章`} />
   <div class="progress" role="presentation"><span class="progress-fill"></span></div>
 
   <div class="shell">
@@ -33,7 +33,7 @@ const num = String(order).padStart(2, '0');
     <main class="main" id="main">
       <header class="chapter-head">
         <p class="eyebrow">
-          <span class="eyebrow-num">Chapter {num}</span>
+          <span class="eyebrow-num">第 {num} 章</span>
           <span class="dot" aria-hidden="true"></span>
           <span>{readingTime}</span>
         </p>
@@ -47,20 +47,20 @@ const num = String(order).padStart(2, '0');
 
       <label class="complete-toggle">
         <input type="checkbox" data-complete-toggle data-chapter-id={chapter.id} />
-        <span>Mark this chapter complete</span>
+        <span>标记本章为已完成</span>
       </label>
 
-      <nav class="chapter-nav" aria-label="Chapter navigation">
+      <nav class="chapter-nav" aria-label="章节导航">
         {prev ? (
           <a class="nav-card is-prev" href={`/${prev.id}/`} rel="prev">
-            <span class="nav-dir">← Previous</span>
+            <span class="nav-dir">← 上一章</span>
             <span class="nav-title">{prev.data.navTitle ?? prev.data.title}</span>
           </a>
         ) : <span class="nav-card is-empty" aria-hidden="true"></span>}
 
         {next ? (
           <a class="nav-card is-next" href={`/${next.id}/`} rel="next">
-            <span class="nav-dir">Next →</span>
+            <span class="nav-dir">下一章 →</span>
             <span class="nav-title">{next.data.navTitle ?? next.data.title}</span>
           </a>
         ) : <span class="nav-card is-empty" aria-hidden="true"></span>}
@@ -183,10 +183,9 @@ const num = String(order).padStart(2, '0');
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), 'Noto Sans SC Variable', sans-serif;
     font-size: var(--text-xs);
     letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
     color: var(--ink-3);
     margin-bottom: var(--space-4);
   }

@@ -10,10 +10,10 @@ const chapters = (await getCollection('chapters'))
 // Parts are derived, not typed: a chapter's part is a function of its order,
 // so inserting a chapter never means re-labelling the ones after it.
 const PARTS = [
-  { from: 1,  to: 7,  label: 'The Request Path',  blurb: 'How bytes on a socket become a handled request.' },
-  { from: 8,  to: 14, label: 'State & Machinery',  blurb: 'Where data lives, and the moving parts around it.' },
-  { from: 15, to: 20, label: 'Running in Production', blurb: 'Keeping it observable, secure and fast under load.' },
-  { from: 21, to: 24, label: 'Distribution & Scale', blurb: 'Shipping it, testing it, and connecting services.' },
+  { from: 1,  to: 7,  label: '请求之路',  blurb: 'socket 上的字节如何变成一个被处理的请求。' },
+  { from: 8,  to: 14, label: '状态与机制',  blurb: '数据存放在哪里，以及围绕它运转的部件。' },
+  { from: 15, to: 20, label: '生产环境运行', blurb: '在负载下保持可观测、安全与快速。' },
+  { from: 21, to: 24, label: '分布式与扩展', blurb: '交付、测试，并把服务连接起来。' },
 ];
 const grouped = PARTS.map((p) => ({
   ...p,
@@ -21,39 +21,38 @@ const grouped = PARTS.map((p) => ({
 })).filter((p) => p.chapters.length > 0);
 ---
 <Base
-  title="Backend from First Principles — a 24-chapter engineering reference"
-  description="A 24-chapter reference on backend engineering, from HTTP and routing through databases, caching and Kafka to production deployment. Notes, diagrams and runnable Go and Python examples."
+  title="后端第一性原理 — 24 章后端工程参考手册"
+  description="一份 24 章的后端工程参考，从 HTTP 与路由，到数据库、缓存与 Kafka，再到生产环境部署。包含笔记、图示与可运行的 Go 和 Python 示例。"
   path="/"
 >
   <SiteHeader />
 
   <main class="home" id="main">
     <section class="hero">
-      <p class="eyebrow">A 24-chapter engineering reference</p>
-      <h1 class="hero-title">Backend, from <em>first principles</em>.</h1>
+      <p class="eyebrow">一份 24 章的工程参考手册</p>
+      <h1 class="hero-title">从<em>第一性原理</em>学后端。</h1>
       <p class="hero-lede">
-        Most backend material teaches a framework. This teaches the machinery underneath it —
-        what an HTTP request actually is, why a connection pool has the size it has, what a
-        broker guarantees and what it does not. Every chapter is a self-contained field manual
-        with diagrams and runnable Go and Python.
+        大多数后端教程教你框架，这里教你框架之下的机器——一个 HTTP 请求到底是什么，
+        连接池的大小为什么是这个数，消息代理能保证什么、不能保证什么。每一章都是一本
+        自成体系的实战手册，配有图示和可运行的 Go 与 Python 代码。
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href={chapters.length ? `/${chapters[0].id}/` : '#chapters'}>
-          Start with Chapter 01
+          从第 01 章开始
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="2.5" y1="8" x2="12.5" y2="8" /><polyline points="8.5,4 12.5,8 8.5,12" /></svg>
         </a>
-        <button class="btn-ghost" type="button" data-search-open>Search the series</button>
+        <button class="btn-ghost" type="button" data-search-open>搜索全站</button>
       </div>
 
       <dl class="facts">
-        <div class="fact"><dt>Chapters</dt><dd>{chapters.length}</dd></div>
-        <div class="fact"><dt>Languages</dt><dd>Go · Python</dd></div>
-        <div class="fact"><dt>Format</dt><dd>Theory + code</dd></div>
-        <div class="fact"><dt>Progress</dt><dd data-progress-fact>0 / {chapters.length}</dd></div>
+        <div class="fact"><dt>章节</dt><dd>{chapters.length}</dd></div>
+        <div class="fact"><dt>语言</dt><dd>Go · Python</dd></div>
+        <div class="fact"><dt>形式</dt><dd>原理 + 代码</dd></div>
+        <div class="fact"><dt>进度</dt><dd data-progress-fact>0 / {chapters.length}</dd></div>
       </dl>
     </section>
 
-    <section class="parts" id="chapters" aria-label="All chapters">
+    <section class="parts" id="chapters" aria-label="全部章节">
       {grouped.map((part) => (
         <section class="part">
           <header class="part-head">
@@ -77,7 +76,7 @@ const grouped = PARTS.map((p) => ({
                   <span class="card-foot">
                     <span class="card-time">{c.data.readingTime}</span>
                     <span class="card-check">
-                      <span aria-hidden="true">✓</span><span class="sr-only">Completed</span>
+                      <span aria-hidden="true">✓</span><span class="sr-only">已完成</span>
                     </span>
                   </span>
                 </a>
@@ -90,24 +89,22 @@ const grouped = PARTS.map((p) => ({
 
     <section class="contribute">
       <div class="contribute-inner">
-        <p class="eyebrow">Open source</p>
-        <h2 class="contribute-title">These notes get better when people argue with them.</h2>
+        <p class="eyebrow">开源项目</p>
+        <h2 class="contribute-title">这些笔记会在争论中变得更好。</h2>
         <p class="contribute-body">
-          Found an explanation that hand-waves, an edge case that is missing, or a diagram
-          that is wrong? Chapters are plain Markdown now — a correction is a pull request,
-          not a wrestling match with hand-written HTML. Implementations in other languages
-          are especially welcome.
+          发现了含糊其辞的解释、遗漏的边界情况，或者画错的图？章节现在都是纯 Markdown——
+          一次修正就是一个 pull request，而不是和手写 HTML 搏斗。尤其欢迎其他语言的实现。
         </p>
         <div class="contribute-actions">
-          <a class="btn-primary" href="https://github.com/DsThakurRawat/Backend-from-first-Principle" target="_blank" rel="noopener noreferrer">Contribute on GitHub</a>
-          <a class="btn-ghost" href="https://github.com/DsThakurRawat/Backend-from-first-Principle/issues" target="_blank" rel="noopener noreferrer">Open an issue</a>
+          <a class="btn-primary" href="https://github.com/iZiTTMarvin/Backend-from-first-Principle-zh" target="_blank" rel="noopener noreferrer">在 GitHub 上贡献</a>
+          <a class="btn-ghost" href="https://github.com/iZiTTMarvin/Backend-from-first-Principle-zh/issues" target="_blank" rel="noopener noreferrer">提交 Issue</a>
         </div>
       </div>
     </section>
 
     <footer class="site-footer">
-      <p>Curated by <a href="https://github.com/DsThakurRawat" target="_blank" rel="noopener noreferrer">@DsThakurRawat</a></p>
-      <p class="quote">“Learn the fundamentals, and the frameworks become obvious.”</p>
+      <p>原著 <a href="https://github.com/DsThakurRawat" target="_blank" rel="noopener noreferrer">@DsThakurRawat</a> · 中文版由 <a href="https://github.com/iZiTTMarvin" target="_blank" rel="noopener noreferrer">@iZiTTMarvin</a> 维护</p>
+      <p class="quote">「掌握基本原理，框架便不言自明。」</p>
     </footer>
   </main>
 </Base>
@@ -122,8 +119,7 @@ const grouped = PARTS.map((p) => ({
   .eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    letter-spacing: var(--tracking-caps);
-    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
     color: var(--accent);
   }
 
@@ -196,6 +192,8 @@ const grouped = PARTS.map((p) => ({
     font-size: var(--text-lg);
     font-weight: 500;
   }
+  /* CJK glyphs aren't in Geist Mono; fall back to the UI font for them. */
+  .fact dd { font-family: var(--font-mono), 'Noto Sans SC Variable', sans-serif; }
 
   /* --- parts + chapter grid --------------------------------------------- */
   .part + .part { margin-top: var(--space-9); }
@@ -298,10 +296,9 @@ const grouped = PARTS.map((p) => ({
     gap: var(--space-3);
   }
   .card-time {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), 'Noto Sans SC Variable', sans-serif;
     font-size: var(--text-2xs);
     letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
     color: var(--ink-3);
   }
 

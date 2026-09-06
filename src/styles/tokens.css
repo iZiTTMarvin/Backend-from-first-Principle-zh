@@ -10,11 +10,13 @@
 
 :root {
   /* ---- type families ---------------------------------------------------
-     Geist        — UI, headings, labels. Tight technical grotesque.
-     Source Serif — long-form prose. Chapters run 2-4 hours of reading.
+     Geist + Noto Sans SC  — UI, headings, labels. Latin glyphs come from
+       Geist, CJK glyphs fall through to Noto Sans SC.
+     Source Serif + Noto Serif SC — long-form prose. Chapters run 2-4
+       hours of reading.
      Geist Mono   — code, identifiers, numeric data.                      */
-  --font-ui: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-prose: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
+  --font-ui: 'Geist Variable', 'Noto Sans SC Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-prose: 'Source Serif 4 Variable', 'Noto Serif SC Variable', ui-serif, Georgia, serif;
   --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', monospace;
   /* Reserved for the migrated diagrams, whose labels were drawn to fit
      against these exact metrics. Not for new work -- use --font-mono. */

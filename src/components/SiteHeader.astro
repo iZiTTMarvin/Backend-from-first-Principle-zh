@@ -14,10 +14,10 @@ const chapters = (await getCollection('chapters'))
 const currentId = Astro.url.pathname.split('/').filter(Boolean)[0] ?? null;
 
 const PARTS = [
-  { from: 1, to: 7, label: 'The Request Path' },
-  { from: 8, to: 14, label: 'State & Machinery' },
-  { from: 15, to: 20, label: 'Running in Production' },
-  { from: 21, to: 24, label: 'Distribution & Scale' },
+  { from: 1, to: 7, label: '请求之路' },
+  { from: 8, to: 14, label: '状态与机制' },
+  { from: 15, to: 20, label: '生产环境运行' },
+  { from: 21, to: 24, label: '分布式与扩展' },
 ];
 
 const groups = PARTS.map((part) => ({
@@ -36,28 +36,28 @@ const groups = PARTS.map((part) => ({
         data-nav-toggle
         aria-expanded="false"
         aria-controls="site-contents"
-        aria-label="Open chapter contents"
+        aria-label="打开章节目录"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </button>
 
-      <button class="contents-scrim" type="button" data-nav-close aria-label="Close chapter contents"></button>
+      <button class="contents-scrim" type="button" data-nav-close aria-label="关闭章节目录"></button>
 
-      <aside class="contents-drawer" id="site-contents" aria-label="Chapter contents">
+      <aside class="contents-drawer" id="site-contents" aria-label="章节目录">
         <div class="contents-head">
-          <span>Contents</span>
-          <button class="contents-close" type="button" data-nav-close aria-label="Close chapter contents">
+          <span>目录</span>
+          <button class="contents-close" type="button" data-nav-close aria-label="关闭章节目录">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
               <path d="m6 6 12 12M18 6 6 18" />
             </svg>
           </button>
         </div>
 
-        <nav class="chapter-contents" aria-label="All chapters">
+        <nav class="chapter-contents" aria-label="全部章节">
           <a class:list={['overview-link', { active: currentId === null }]} href="/" aria-current={currentId === null ? 'page' : undefined}>
-            <span>Overview</span>
+            <span>总览</span>
           </a>
 
           {groups.map((group) => {
@@ -95,22 +95,22 @@ const groups = PARTS.map((part) => ({
     </div>
 
     <a class="wordmark" href="/">
-      <span class="mark" aria-hidden="true">B</span>
-      <span class="name">Backend from First Principles</span>
-      <span class="name-short">BFP</span>
+      <span class="mark" aria-hidden="true">后</span>
+      <span class="name">后端第一性原理</span>
+      <span class="name-short">后端原理</span>
     </a>
     {crumb && <><span class="sep" aria-hidden="true">/</span><span class="crumb">{crumb}</span></>}
   </div>
 
   <div class="right">
-    <button class="search-open" type="button" data-search-open aria-label="Search the series">
+    <button class="search-open" type="button" data-search-open aria-label="搜索全站">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <circle cx="10.5" cy="10.5" r="7" /><line x1="15.6" y1="15.6" x2="21" y2="21" />
       </svg>
-      <span class="label">Search</span>
+      <span class="label">搜索</span>
       <kbd>/</kbd>
     </button>
-    <a class="gh" href="https://github.com/DsThakurRawat/Backend-from-first-Principle" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+    <a class="gh" href="https://github.com/iZiTTMarvin/Backend-from-first-Principle-zh" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上查看">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
     </a>
     <ThemeToggle />
@@ -366,7 +366,7 @@ const groups = PARTS.map((part) => ({
     function setOpen(isOpen: boolean) {
       nav.classList.toggle('is-open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.setAttribute('aria-label', isOpen ? 'Close chapter contents' : 'Open chapter contents');
+      toggle.setAttribute('aria-label', isOpen ? '关闭章节目录' : '打开章节目录');
       document.documentElement.classList.toggle('mobile-nav-open', isOpen);
     }
 

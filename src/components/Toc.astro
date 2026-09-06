@@ -14,7 +14,7 @@ const entries = items.map((h) => ({
 }));
 ---
 <nav class="toc" aria-labelledby="toc-heading">
-  <p class="toc-heading" id="toc-heading">On this page</p>
+  <p class="toc-heading" id="toc-heading">本页目录</p>
   <ol class="toc-list">
     {entries.map((h) => (
       <li class:list={['toc-item', h.depth === 3 && 'is-sub']}>

@@ -6,7 +6,7 @@ interface Props {
 }
 const { type = 'info', title } = Astro.props;
 
-const LABEL = { info: 'Note', ok: 'Good practice', warn: 'Watch out' } as const;
+const LABEL = { info: '注', ok: '最佳实践', warn: '注意' } as const;
 ---
 <aside class:list={['callout', `is-${type}`]}>
   <p class="callout-title">

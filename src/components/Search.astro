@@ -4,7 +4,7 @@
 // hand-maintained CHAPTERS keyword array the old site carried in
 // enhancements.js, which had to be edited by hand for every chapter.
 ---
-<dialog class="search" aria-label="Search the series">
+<dialog class="search" aria-label="搜索全站">
   <div class="search-panel">
     <div id="pagefind" data-pagefind-ui></div>
   </div>
@@ -86,6 +86,8 @@
       const UI = (window as any).PagefindUI;
       if (UI && !dialog!.dataset.ready) {
         dialog!.dataset.ready = '1';
+        // The page is tagged lang="zh-CN", so Pagefind loads its built-in
+        // Chinese UI strings and segments CJK queries automatically.
         new UI({ element: '#pagefind', showImages: false, pageSize: 6 });
       }
       dialog!.showModal();

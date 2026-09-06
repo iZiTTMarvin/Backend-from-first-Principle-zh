@@ -2,6 +2,11 @@
 import '@fontsource-variable/geist';
 import '@fontsource-variable/geist-mono';
 import '@fontsource-variable/source-serif-4';
+// Chinese text: Noto Sans SC for UI/headings, Noto Serif SC for long-form
+// prose. Both are variable fonts subset by unicode-range, so the browser
+// only downloads the slices a page actually uses.
+import '@fontsource-variable/noto-sans-sc';
+import '@fontsource-variable/noto-serif-sc';
 // Diagram labels only: the inherited artwork was typeset against JetBrains
 // Mono's metrics, and every label was positioned by hand to fit its box.
 // Substituting a different mono shifts those labels into their neighbours.
@@ -21,7 +26,7 @@ const { title, description, path } = Astro.props;
 const canonical = new URL(path, Astro.site);
 ---
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,7 +59,7 @@ const canonical = new URL(path, Astro.site);
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">跳到正文</a>
   <slot />
   <Search />
 </body>
