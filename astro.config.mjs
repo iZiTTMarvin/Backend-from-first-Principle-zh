@@ -25,9 +25,8 @@ export default defineConfig({
   },
   build: { format: 'directory' },
   security: {
-    // The v0 preview proxies the dev server through *.vercel.run, so browser
-    // subresource requests arrive cross-origin and would be rejected by the
-    // dev server's Sec-Fetch check.
-    allowedDomains: [{ hostname: '**.vercel.run', protocol: 'https' }],
+    // This project builds to static files. Allow any Origin only on the local
+    // dev server so iframe-based preview proxies can load the page.
+    allowedDomains: [{}],
   },
 });
